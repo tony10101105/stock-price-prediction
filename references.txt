@@ -1,0 +1,34 @@
+Stock Market Prediction Based on Generative Adversarial Network
+2018 International Conference on Identification, Information and Knowledge in the Internet of Things, IIKI 2018
+有點唬爛，論文也不嚴謹，甚至有錯字，但想法有趣
+
+Stock Market Prediction on High-Frequency Data Using Generative Adversarial Nets
+Hindawi(斂財期刊)
+還算可以，用rolling segmentation instead of partitioning，並且用了13個technical indicators，but用了一些看起來很故意的測試指標(ex:DPA)
+
+Predicting the Direction of Stock Market Index Movement Using an Optimized Artificial Neural Network Model
+Plus one(爭議期刊)
+Citation挺多，用了和上一篇類似的測試指標（這篇叫hit ratio）。整理出許多研究者常選用的indices(type 1, 13個) 跟比較少人用的type 2(9個)，並證明後者在ANN上較佳。but沒有用GA選input variables，而是用GA+BP訓練ANN，規避local minima。
+
+Deep learning for stock prediction using numerical and textual information
+2016 IEEE/ACIS 15th International Conference on Computer and Information Science (ICIS)
+citation挺多，把textual information用paragraph vector處理，再跟numerical information一起丟到MLP裡面降升維、concatenate後丟到LSTM裡面做time series預測。提到了同一性質的公司間股價的關係，numerical information輸入是c1~c10（十間公司）, LSTM輸出是下一個timestep的c1~c10。結果挺顯著。
+
+＊＊Open IE
+
+Using Structured Events to Predict Stock Price Movement: An Empirical Investigation
+emnlp2014
+citation挺多，使用event-driven stock price prediction。提出structured event，不同於bag-of-words的是，能把主詞動詞受詞的關係連接起來，並比較了分別都有使用這兩種方法的linear method, SVM, MLP，用accuracy和馬修斯相關係數(MCC)證明structured event+MLP最佳。
+
+Deep Learning for Event-Driven Stock Prediction
+IJCAI2015
+重要，承襲上一篇。上一篇的structured representations會有sparsity的問題，所以這一篇使用NTN來做event-embedding來避免不必要的高維度，並在prediction model的部分使用三個CNN（對應long-term(month), mid-term(w), short-term(d)）抽取資訊後一起丟進一層fully-connected layer做2-class classification。一樣用Accuracy和MCC來評估模型。
+
+
+Improving Factor-Based Quantitative Investing by Forecasting Company Fundamentals
+NIPS Time Series Workshop2017
+有成為github上的開放project，主要提出Lookahead Factor Models (LFMs)預測company fundamentals，執行fundamental analysis，將所有公司排名，選擇fundamentals最佳的top50投資，而非傳統的直接預測股價(technical analysis)。已經先假定 EBIT/EV是最重要的指標，並給予較高loss function權重。因為是16個指標同時丟進網路，並output出個指標的預測值，所以是multitask learning。
+
+Stock Movement Prediction from Tweets and Historical Prices
+
+
